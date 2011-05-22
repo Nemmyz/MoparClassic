@@ -17,9 +17,19 @@ public class ItemPositionPacketBuilder {
 	if (watchedItems.changed()) {
 	    Collection<Item> newItems = watchedItems.getNewEntities();
 	    Collection<Item> knownItems = watchedItems.getKnownEntities();
+	    ArrayList<Item> itemsToRemove = playerToUpdate.getItemsToRemove();
+
 	    RSCPacketBuilder packet = new RSCPacketBuilder();
 	    packet.setID(109);
-
+	    //Needs testing!
+	    for(Item toRemove : itemsToRemove) {
+		    byte[] offsets = DataConversions.getObjectPositionOffsets(toRemove.getLocation(), playerToUpdate.getLocation());
+		    packet.addShort(toRemove.getID() + 32768);
+		    packet.addByte(offsets[0]);
+		    packet.addByte(offsets[1]);
+	    }
+	    playerToUpdate.getItemsToRemove().clear();
+	   //Needs testing!
 	    for (Item i : knownItems) {
 		// nextTo
 		if (watchedItems.isRemoving(i)) {
