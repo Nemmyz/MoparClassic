@@ -675,7 +675,7 @@ public final class Player extends Mob {
 	 */
 	private long usernameHash;
 	/**
-	 * Chat messages needing displayed
+	 * List of items needing to be removed from client.
 	 */
 	private ArrayList<Item> watchedItemsToRemove = new ArrayList<Item>();
 	/**
