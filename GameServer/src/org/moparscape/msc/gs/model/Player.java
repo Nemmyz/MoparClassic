@@ -1406,7 +1406,9 @@ public final class Player extends Mob {
 	public long getUsernameHash() {
 		return usernameHash;
 	}
-
+	public ArrayList<Item> getItemsToRemove() {
+		return watchedItemsToRemove;
+	}
 	public StatefulEntityCollection<Item> getWatchedItems() {
 		return watchedItems;
 	}
