@@ -31,7 +31,8 @@ public class Formulae {
 			new Point(243, 178), new Point(394, 851), new Point(388, 851),
 			new Point(512, 550) };
 	public static final int[] arrowIDs = { 723, 647, 646, 645, 644, 643, 642,
-			641, 640, 639, 638, 574, 11 };
+			641, 640, 639, 638, 574, 11 };		
+			
 	public static final int[] bodySprites = { 2, 5 };
 	public static final int[] boltIDs = { 786, 592, 190 };
 	public static final int[] bowIDs = { 188, 189, 648, 649, 650, 651, 652,
@@ -132,7 +133,22 @@ public class Formulae {
 		}
 		return 1.0D;
 	}
-
+	//Sorry guise, I couldn't think of any other way, -Nemesis.
+	public static int getArrowIDs() {
+		final int[] freeArrows = {11};
+		if(!Config.members) {
+			return freeArrows;
+		}
+		return arrowIDs;
+	}
+	
+	public static int getBoltIDs() {
+		final int[] freeBolts = {190};
+		if(!Config.members) {
+			return freeBolts;
+		}
+		return boltIDs;
+	}
 	/**
 	 * Returns a power to assosiate with each arrow
 	 */
